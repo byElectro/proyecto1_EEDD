@@ -9,6 +9,13 @@ public class Calculadora {
 
 		}
 
+		if (args.length == 1 && args[0].equals("version")){
+			
+			version();
+			System.exit(0);
+			
+		}
+
 
 		if (args.length != 3){
 			System.out.println("Numero de parametros incorrectos");
@@ -54,6 +61,13 @@ public class Calculadora {
 
 	}
 
+
+
+	public static void version(){
+
+		System.out.println("La version actual es la 0.2.0");
+
+	}
 
 	public static double sumar(double num1, double num2){
 

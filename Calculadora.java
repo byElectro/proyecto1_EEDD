@@ -1,25 +1,30 @@
 public class Calculadora {
 
+	private  static final String VERSION = "0.2.0";
+
 	public static void main(String[] args){
 
-		if (args.length == 1 && args[0].equals("help")) {
+		if (args.length == 1){
+		  switch (args[0]){
+			case "help" -> {
+				help();
+				System.exit(0);
+			}	
+			case "version" -> {
+				version();
+				System.exit(0);
+			}
+			default -> {
+				usoIncorrecto();
+				System.exit(-1);
+			}
 
-			help();
-			System.exit(0);
-
-		}
-
-		if (args.length == 1 && args[0].equals("version")){
-			
-			version();
-			System.exit(0);
-			
+		  };
 		}
 
 
 		if (args.length != 3){
-			System.out.println("Numero de parametros incorrectos");
-			System.out.println("USO: Java Calculadora <operacion> num1 num2");
+			usoIncorrecto();
 			//Esto es para salir fuera cuando salte eso.
 			System.exit(-1);
 		}
@@ -49,6 +54,15 @@ public class Calculadora {
 
 
 
+	public static void usoIncorrecto() {
+
+		System.out.println("Numero de parametros incorrectos");
+		System.out.println("USO: Java Calculadora <operacion> num1 num2");
+		System.out.println("<java Calculadora help> para más informacion");
+
+
+	}
+
 
 	public static void help(){
 
@@ -65,7 +79,7 @@ public class Calculadora {
 
 	public static void version(){
 
-		System.out.println("La version actual es la 0.2.0");
+		System.out.println(VERSION);
 
 	}
 
